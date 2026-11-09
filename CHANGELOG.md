@@ -1,0 +1,293 @@
+## [0.39.2](https://github.com/StartBet/st-core-ui/compare/v0.39.1...v0.39.2) (2026-09-25)
+
+
+### Bug Fixes
+
+* **release:** republish package to npm with the new token ([5be1cd0](https://github.com/StartBet/st-core-ui/commit/5be1cd0a41335c2be3fc7e25eb17a1b4be11d50b))
+
+## [0.39.1](https://github.com/StartBet/st-core-ui/compare/v0.39.0...v0.39.1) (2026-09-25)
+
+
+### Bug Fixes
+
+* **release:** republish package to npm ([5a282b6](https://github.com/StartBet/st-core-ui/commit/5a282b60a5499e136341e5056ac692a6ff945394))
+
+# [0.39.0](https://github.com/StartBet/st-core-ui/compare/v0.38.0...v0.39.0) (2026-09-25)
+
+
+### Features
+
+* **st-core-ui:** 20260924 86bc73fcd ([#55](https://github.com/StartBet/st-core-ui/issues/55)) ([15ae65f](https://github.com/StartBet/st-core-ui/commit/15ae65f45383862f6e9846d1d263ca3df4accf15))
+
+# [0.38.0](https://github.com/StartBet/st-core-ui/compare/v0.37.0...v0.38.0) (2026-09-24)
+
+
+### Features
+
+* **st-promotions-card:** add promotion card product component ([#54](https://github.com/StartBet/st-core-ui/issues/54)) ([7fe068a](https://github.com/StartBet/st-core-ui/commit/7fe068a9af0c08b35fc9df8beeb45400a445ecfc))
+
+# [0.37.0](https://github.com/StartBet/st-core-ui/compare/v0.36.0...v0.37.0) (2026-09-23)
+
+
+### Features
+
+* **st-game-card:** add casino game card product component ([#53](https://github.com/StartBet/st-core-ui/issues/53)) ([d580173](https://github.com/StartBet/st-core-ui/commit/d5801732db2508b50a6dbfc67f356742b8676f62))
+
+# [0.36.0](https://github.com/StartBet/st-core-ui/compare/v0.35.0...v0.36.0) (2026-09-21)
+
+
+### Features
+
+* **tokens:** change color lihjtgmod to neutrals ([#52](https://github.com/StartBet/st-core-ui/issues/52)) ([602b9ed](https://github.com/StartBet/st-core-ui/commit/602b9edbf3495f621d42b496f8abc8d60455aa84))
+
+# [0.35.0](https://github.com/StartBet/st-core-ui/compare/v0.34.2...v0.35.0) (2026-09-15)
+
+
+### Features
+
+* **st-super-odds-card:** adjustments on feedback props on card ([#51](https://github.com/StartBet/st-core-ui/issues/51)) ([48f9610](https://github.com/StartBet/st-core-ui/commit/48f961080f4377a187b36e8249ff2ff0ce36d9c2))
+
+## [0.34.2](https://github.com/StartBet/st-core-ui/compare/v0.34.1...v0.34.2) (2026-09-15)
+
+
+### Bug Fixes
+
+* **st-carousel:** give the loop clones their own vnodes ([#50](https://github.com/StartBet/st-core-ui/issues/50)) ([e5b0f8c](https://github.com/StartBet/st-core-ui/commit/e5b0f8c052be444d4d7adb6655b93cfe9b4d033c))
+
+## [0.34.1](https://github.com/StartBet/st-core-ui/compare/v0.34.0...v0.34.1) (2026-09-15)
+
+
+### Bug Fixes
+
+* **st-carousel:** keep the loop snap free of leftover transitions ([#49](https://github.com/StartBet/st-core-ui/issues/49)) ([d8e525f](https://github.com/StartBet/st-core-ui/commit/d8e525fe7aa8d5abb3d0951963965804b5194e2b))
+
+# [0.34.0](https://github.com/StartBet/st-core-ui/compare/v0.33.0...v0.34.0) (2026-09-14)
+
+
+### Features
+
+* **tokens:** scope themes to any element via data-theme ([#48](https://github.com/StartBet/st-core-ui/issues/48)) ([37bd9a6](https://github.com/StartBet/st-core-ui/commit/37bd9a6e622f1afedbe57c1edbfff381970dde36))
+
+# [0.33.0](https://github.com/StartBet/st-core-ui/compare/v0.32.0...v0.33.0) (2026-09-11)
+
+
+### Features
+
+* **components:** add new components ([#47](https://github.com/StartBet/st-core-ui/issues/47)) ([5e107c5](https://github.com/StartBet/st-core-ui/commit/5e107c5234bd64899b9855bbea912a4bef062f63))
+
+# [0.32.0](https://github.com/StartBet/st-core-ui/compare/v0.31.0...v0.32.0) (2026-09-08)
+
+
+### Features
+
+* **st-carousel:** fix wide and pagination and fix size small st-button ([#46](https://github.com/StartBet/st-core-ui/issues/46)) ([4177af5](https://github.com/StartBet/st-core-ui/commit/4177af54182642efe3dad220fd0052dc382f1be7))
+
+# [0.31.0](https://github.com/StartBet/st-core-ui/compare/v0.30.0...v0.31.0) (2026-09-03)
+
+
+### Features
+
+* **st-carousel:** add new component ([#45](https://github.com/StartBet/st-core-ui/issues/45)) ([b0639e6](https://github.com/StartBet/st-core-ui/commit/b0639e61b5591f2d5e2a524cd73a47197c3c8c85))
+
+# [0.30.0](https://github.com/StartBet/st-core-ui/compare/v0.29.0...v0.30.0) (2026-08-31)
+
+
+### Features
+
+* **st-typography:** solving problem with the highlight typography ([#44](https://github.com/StartBet/st-core-ui/issues/44)) ([5e1ef80](https://github.com/StartBet/st-core-ui/commit/5e1ef80ea805fbf94fb2b5e44fe41db5feceb98c))
+
+# [0.29.0](https://github.com/StartBet/st-core-ui/compare/v0.28.0...v0.29.0) (2026-08-31)
+
+### Features
+
+* **base-neue:** improving the base-neue export method ([31de612](https://github.com/StartBet/st-core-ui/commit/31de612ed500772fe927ff444ec5dda46ffcb1e2))
+
+# [0.28.0](https://github.com/StartBet/st-core-ui/compare/v0.27.0...v0.28.0) (2026-08-28)
+
+### Features
+
+### Features
+
+- **tokens:** update color tokens and StButton/STInput designs ([871c167](https://github.com/StartBet/st-core-ui/commit/871c167a3034287f92cf579b1fe27b24aa09f831))
+
+# [0.26.0](https://github.com/StartBet/st-core-ui/compare/v0.25.0...v0.26.0) (2026-08-24)
+
+### Features
+
+- **package:** new version 0-26 ([#40](https://github.com/StartBet/st-core-ui/issues/40)) ([ff170be](https://github.com/StartBet/st-core-ui/commit/ff170be1b50d5a5f3351653413438410e8825c65))
+
+# [0.25.0](https://github.com/StartBet/st-core-ui/compare/v0.24.0...v0.25.0) (2026-08-21)
+
+### Features
+
+- **progress-bar:** add new component ([#38](https://github.com/StartBet/st-core-ui/issues/38)) ([e2ef507](https://github.com/StartBet/st-core-ui/commit/e2ef507fb889f959718a2e8d738d6b3aa91185b5))
+
+# [0.24.0](https://github.com/StartBet/st-core-ui/compare/v0.23.0...v0.24.0) (2026-07-14)
+
+### Features
+
+- **illustrations:** add new component ([#37](https://github.com/StartBet/st-core-ui/issues/37)) ([faccda0](https://github.com/StartBet/st-core-ui/commit/faccda07369fc008b78448680ba08b292338aec8))
+
+# [0.23.0](https://github.com/StartBet/st-core-ui/compare/v0.22.0...v0.23.0) (2026-07-10)
+
+### Features
+
+- **tooltip:** add new component ([#36](https://github.com/StartBet/st-core-ui/issues/36)) ([e2768af](https://github.com/StartBet/st-core-ui/commit/e2768af8d63f3cb7d6b8f134140773529ac519c4))
+
+# [0.22.0](https://github.com/StartBet/st-core-ui/compare/v0.21.0...v0.22.0) (2026-07-10)
+
+### Features
+
+- **modal:** add new component ([#35](https://github.com/StartBet/st-core-ui/issues/35)) ([7103b72](https://github.com/StartBet/st-core-ui/commit/7103b72a09f7e7f5b9974637b127d55e3d65e713))
+
+# [0.21.0](https://github.com/StartBet/st-core-ui/compare/v0.20.0...v0.21.0) (2026-07-09)
+
+### Features
+
+- **loading:** add new component ([#34](https://github.com/StartBet/st-core-ui/issues/34)) ([48d28e0](https://github.com/StartBet/st-core-ui/commit/48d28e07c57f55b65c5d3146c1ec5475b249beed))
+
+# [0.20.0](https://github.com/StartBet/st-core-ui/compare/v0.19.0...v0.20.0) (2026-07-09)
+
+### Features
+
+- **list:** add new component ([#33](https://github.com/StartBet/st-core-ui/issues/33)) ([5e95c8d](https://github.com/StartBet/st-core-ui/commit/5e95c8dd5a4bf8460e183d162d8a87008baa452e))
+
+# [0.19.0](https://github.com/StartBet/st-core-ui/compare/v0.18.0...v0.19.0) (2026-07-09)
+
+### Features
+
+- **grid:** add new component ([#32](https://github.com/StartBet/st-core-ui/issues/32)) ([5fbad44](https://github.com/StartBet/st-core-ui/commit/5fbad4447f0b88eb8dc383839ffb9b6357916b79))
+
+# [0.18.0](https://github.com/StartBet/st-core-ui/compare/v0.17.0...v0.18.0) (2026-07-09)
+
+### Features
+
+- **switch:** add new component ([#31](https://github.com/StartBet/st-core-ui/issues/31)) ([880950f](https://github.com/StartBet/st-core-ui/commit/880950ffdd7a47d6f463c0460d65c7b9f5e84df5))
+
+# [0.17.0](https://github.com/StartBet/st-core-ui/compare/v0.16.0...v0.17.0) (2026-07-09)
+
+### Features
+
+- **select:** add new component ([#30](https://github.com/StartBet/st-core-ui/issues/30)) ([1217554](https://github.com/StartBet/st-core-ui/commit/1217554ff30bce3617e3af783b80e0221d28c827))
+
+# [0.16.0](https://github.com/StartBet/st-core-ui/compare/v0.15.0...v0.16.0) (2026-07-07)
+
+### Features
+
+- **radio:** add new component ([#29](https://github.com/StartBet/st-core-ui/issues/29)) ([c3031b0](https://github.com/StartBet/st-core-ui/commit/c3031b03fc0312abe54d5096d7ea5d578c7bd793))
+
+# [0.15.0](https://github.com/StartBet/st-core-ui/compare/v0.14.0...v0.15.0) (2026-07-07)
+
+### Features
+
+- new st option ([#28](https://github.com/StartBet/st-core-ui/issues/28)) ([f57af47](https://github.com/StartBet/st-core-ui/commit/f57af4769930980e224f5e05ed0360d93bc76a03))
+
+# [0.14.0](https://github.com/StartBet/st-core-ui/compare/v0.13.0...v0.14.0) (2026-07-07)
+
+### Features
+
+- new st input ([#27](https://github.com/StartBet/st-core-ui/issues/27)) ([6702fc3](https://github.com/StartBet/st-core-ui/commit/6702fc368e2db98f850c561b804a1708961756fc))
+
+# [0.13.0](https://github.com/StartBet/st-core-ui/compare/v0.12.1...v0.13.0) (2026-07-07)
+
+### Features
+
+- new st checkbox ([#26](https://github.com/StartBet/st-core-ui/issues/26)) ([3646b52](https://github.com/StartBet/st-core-ui/commit/3646b5200dde3a524fc9beb817c77b00f97d19f8))
+
+## [0.12.1](https://github.com/StartBet/st-core-ui/compare/v0.12.0...v0.12.1) (2026-07-07)
+
+### Bug Fixes
+
+- **dropdown:** fixing a problem with the w-auto ([#25](https://github.com/StartBet/st-core-ui/issues/25)) ([c59201b](https://github.com/StartBet/st-core-ui/commit/c59201b1e7f4db3fd1596a564bfaa2594f0fda43))
+
+# [0.12.0](https://github.com/StartBet/st-core-ui/compare/v0.11.0...v0.12.0) (2026-07-07)
+
+### Features
+
+- new st dropdown ([#24](https://github.com/StartBet/st-core-ui/issues/24)) ([572d759](https://github.com/StartBet/st-core-ui/commit/572d7594b225e89f38714217caf3b8ae1f497c26))
+
+# [0.11.0](https://github.com/StartBet/st-core-ui/compare/v0.10.1...v0.11.0) (2026-07-07)
+
+### Features
+
+- new st chip ([#23](https://github.com/StartBet/st-core-ui/issues/23)) ([b444a64](https://github.com/StartBet/st-core-ui/commit/b444a6426cef89ffa5940aee038274a7a13db882))
+
+## [0.10.1](https://github.com/StartBet/st-core-ui/compare/v0.10.0...v0.10.1) (2026-07-07)
+
+### Bug Fixes
+
+- **st-button:** apply st-icon in component ([#22](https://github.com/StartBet/st-core-ui/issues/22)) ([49db122](https://github.com/StartBet/st-core-ui/commit/49db1224af7d8eee263f6a4e29e864e9b6e10bbd))
+
+# [0.10.0](https://github.com/StartBet/st-core-ui/compare/v0.9.0...v0.10.0) (2026-07-07)
+
+### Features
+
+- **icon:** add new component ([#21](https://github.com/StartBet/st-core-ui/issues/21)) ([597e4cb](https://github.com/StartBet/st-core-ui/commit/597e4cb4a91b36b52721dfc45c2ecabc53911822))
+
+# [0.9.0](https://github.com/StartBet/st-core-ui/compare/v0.8.0...v0.9.0) (2026-07-06)
+
+### Features
+
+- **button-group:** new st button group ([#20](https://github.com/StartBet/st-core-ui/issues/20)) ([b83e310](https://github.com/StartBet/st-core-ui/commit/b83e3105d5817067c9e31c16fc3b28c012b52c4d))
+
+# [0.8.0](https://github.com/StartBet/st-core-ui/compare/v0.7.0...v0.8.0) (2026-07-06)
+
+### Features
+
+- **badge:** new st badge ([#19](https://github.com/StartBet/st-core-ui/issues/19)) ([a998efa](https://github.com/StartBet/st-core-ui/commit/a998efab80e14ed9ce375b6a8f0a94bb2ea6059e))
+
+# [0.7.0](https://github.com/StartBet/st-core-ui/compare/v0.6.0...v0.7.0) (2026-07-06)
+
+### Features
+
+- **st-paper:** new st paper ([#18](https://github.com/StartBet/st-core-ui/issues/18)) ([6a62eee](https://github.com/StartBet/st-core-ui/commit/6a62eeefa4526d734d695c53a063e93c0669ce8b))
+
+# [0.6.0](https://github.com/StartBet/st-core-ui/compare/v0.5.0...v0.6.0) (2026-07-06)
+
+### Bug Fixes
+
+- **st-button-example:** delet component example to the lib ([#17](https://github.com/StartBet/st-core-ui/issues/17)) ([7e6747e](https://github.com/StartBet/st-core-ui/commit/7e6747efc65c6e59e3503dd45846306065672ba6))
+
+### Features
+
+- **typography:** new st typography ([#16](https://github.com/StartBet/st-core-ui/issues/16)) ([6ed81ff](https://github.com/StartBet/st-core-ui/commit/6ed81ff8d8ed6a28e0df888188d4ace15688a7f1))
+
+# [0.5.0](https://github.com/StartBet/st-core-ui/compare/v0.4.0...v0.5.0) (2026-07-06)
+
+### Features
+
+- **storybook:** new page get started ([#15](https://github.com/StartBet/st-core-ui/issues/15)) ([cbf85ea](https://github.com/StartBet/st-core-ui/commit/cbf85eaa634808bd3e83e6f29a6f4f0181a73764))
+
+# [0.4.0](https://github.com/StartBet/st-core-ui/compare/v0.3.0...v0.4.0) (2026-07-02)
+
+### Features
+
+- **storybook:** publish storybook in github pages ([#14](https://github.com/StartBet/st-core-ui/issues/14)) ([2977a48](https://github.com/StartBet/st-core-ui/commit/2977a48a45190f1c96e234615b2338d0bb715ea3))
+
+# [0.3.0](https://github.com/StartBet/st-core-ui/compare/v0.2.0...v0.3.0) (2026-07-01)
+
+### Features
+
+- **storybook:** styling and config ([#13](https://github.com/StartBet/st-core-ui/issues/13)) ([b159fa3](https://github.com/StartBet/st-core-ui/commit/b159fa315fb78dbac1d8d9aecd350cf03f088966))
+
+# [0.2.0](https://github.com/StartBet/st-core-ui/compare/v0.1.0...v0.2.0) (2026-07-01)
+
+### Features
+
+- **config:** integration front startbet ([#12](https://github.com/StartBet/st-core-ui/issues/12)) ([5566fc2](https://github.com/StartBet/st-core-ui/commit/5566fc20b8bf2af173f519e214d2d8557086ea59))
+
+# [0.1.0](https://github.com/StartBet/st-core-ui/compare/v0.0.1...v0.1.0) (2026-06-26)
+
+### Bug Fixes
+
+- **release:** rerun release after npm token update ([#11](https://github.com/StartBet/st-core-ui/issues/11)) ([39ecc67](https://github.com/StartBet/st-core-ui/commit/39ecc67efb3bfa80075323d85217fe7eb1b9c0b9))
+
+### Features
+
+- **release:** trigger first semantic release ([#10](https://github.com/StartBet/st-core-ui/issues/10)) ([b9a8089](https://github.com/StartBet/st-core-ui/commit/b9a8089369d46a815645f3e55a71d1be6d42708c))
+
+# [0.1.0](https://github.com/StartBet/st-core-ui/compare/v0.0.1...v0.1.0) (2026-06-26)
+
+### Features
+
+- **release:** trigger first semantic release ([#10](https://github.com/StartBet/st-core-ui/issues/10)) ([b9a8089](https://github.com/StartBet/st-core-ui/commit/b9a8089369d46a815645f3e55a71d1be6d42708c))

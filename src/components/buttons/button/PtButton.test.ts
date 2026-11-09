@@ -1,0 +1,193 @@
+import { mount } from '@vue/test-utils';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faChevronRight, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { describe, expect, it } from 'vitest';
+import { h } from 'vue';
+
+import PtButton from './PtButton.vue';
+
+library.add(faPlus, faChevronRight);
+
+describe('PtButton', () => {
+  const classList = (cls: string | undefined) =>
+    (cls ?? '').trim().split(/\s+/).filter(Boolean);
+
+  it('centraliza o conteudo quando nao ha adorno nas pontas', () => {
+    const wrapper = mount(PtButton, {
+      props: { fullWidth: true },
+      slots: { default: 'Adicionar ao bilhete' }
+    });
+
+    expect(classList(wrapper.attributes('class'))).toContain('justify-center');
+    expect(classList(wrapper.attributes('class'))).not.toContain(
+      'justify-between'
+    );
+  });
+
+  it('centraliza mesmo com icone, que fica dentro do conteudo', () => {
+    const wrapper = mount(PtButton, {
+      props: { fullWidth: true, iconLeft: 'plus' },
+      slots: { default: 'Adicionar' }
+    });
+
+    expect(classList(wrapper.attributes('class'))).toContain('justify-center');
+  });
+
+  it('separa nas pontas quando ha adorno', () => {
+    const comFim = mount(PtButton, {
+      slots: { default: 'Salvar', endAdornment: '<span>9</span>' }
+    });
+    const comInicio = mount(PtButton, {
+      slots: { default: 'Salvar', startAdornment: '<span>9</span>' }
+    });
+
+    expect(classList(comFim.attributes('class'))).toContain('justify-between');
+    expect(classList(comInicio.attributes('class'))).toContain(
+      'justify-between'
+    );
+  });
+
+  it('renderiza slot e aplica defaults', () => {
+    const wrapper = mount(PtButton, { slots: { default: 'Salvar' } });
+
+    expect(wrapper.element.tagName.toLowerCase()).toBe('button');
+    expect(wrapper.text()).toContain('Salvar');
+
+    const list = classList(wrapper.attributes('class'));
+    expect(list).toContain('rounded-pt-1');
+    expect(list).toContain('h-10');
+    expect(list).toContain('bg-pt-primary');
+    expect(list).toContain('text-pt-content-bright');
+    expect(list).toContain('overflow-hidden');
+    expect(list).toContain('hover:shadow-pt-action-hover');
+  });
+
+  it('aplica variant ghost com a mesma superficie nas quatro cores', () => {
+    const cores = [
+      ['primary', 'text-pt-content-primary'],
+      ['secondary', 'text-pt-content-secondary'],
+      ['positive', 'text-pt-content-positive'],
+      ['negative', 'text-pt-content-negative']
+    ] as const;
+
+    cores.forEach(([color, texto]) => {
+      const wrapper = mount(PtButton, { props: { variant: 'ghost', color } });
+      const list = classList(wrapper.attributes('class'));
+
+      expect(list).toContain('bg-[--pt-color-shadow-1]');
+      expect(list).toContain(texto);
+      expect(list).toContain('border-transparent');
+    });
+  });
+
+  it('separa ghost de text apenas pelo fundo', () => {
+    const semFundo = mount(PtButton, { props: { variant: 'text' } });
+    const comFundo = mount(PtButton, { props: { variant: 'ghost' } });
+
+    expect(classList(semFundo.attributes('class'))).toContain('bg-transparent');
+    expect(classList(comFundo.attributes('class'))).not.toContain(
+      'bg-transparent'
+    );
+  });
+
+  it('aplica variant outline + color secondary', () => {
+    const wrapper = mount(PtButton, {
+      props: { variant: 'outline', color: 'secondary' }
+    });
+    const list = classList(wrapper.attributes('class'));
+
+    expect(list).toContain('bg-transparent');
+    expect(list).toContain('border-pt-secondary');
+    expect(list).toContain('text-pt-content-secondary');
+  });
+
+  it('aplica size small', () => {
+    const wrapper = mount(PtButton, {
+      props: { size: 'small' },
+      slots: { default: 'Ok' }
+    });
+    const list = classList(wrapper.attributes('class'));
+
+    expect(list).toContain('h-7');
+    expect(list).toContain('text-pt-xxs');
+  });
+
+  it('entra em modo icon only quando nao ha slot e existe iconLeft', () => {
+    const wrapper = mount(PtButton, { props: { iconLeft: 'plus' } });
+    const list = classList(wrapper.attributes('class'));
+
+    expect(list).toContain('w-10');
+    expect(list).toContain('px-0');
+
+    const icon = wrapper.find('[aria-label="icon"]');
+    expect(icon.exists()).toBe(true);
+    expect(icon.find('svg').exists()).toBe(true);
+  });
+
+  it('aplica disabled e sobrescreve estilos', () => {
+    const wrapper = mount(PtButton, {
+      props: { disabled: true, variant: 'solid', color: 'negative' }
+    });
+    const list = classList(wrapper.attributes('class'));
+
+    expect(list).toContain('bg-pt-surface-3');
+    expect(list).toContain('text-pt-content-disable');
+    expect(list).toContain('border-pt-border-2');
+    expect(list).not.toContain('hover:shadow-pt-action-hover');
+    expect(wrapper.attributes('disabled')).toBeDefined();
+  });
+
+  it('aplica fullWidth', () => {
+    const wrapper = mount(PtButton, {
+      props: { fullWidth: true },
+      slots: { default: 'Continuar' }
+    });
+    const list = classList(wrapper.attributes('class'));
+
+    expect(list).toContain('w-full');
+  });
+
+  it('ignora slot default com apenas espaços e mantém modo icon only', () => {
+    const wrapper = mount(PtButton, {
+      props: { iconRight: 'chevron-right' },
+      slots: { default: '   ' }
+    });
+    const list = classList(wrapper.attributes('class'));
+
+    expect(list).toContain('w-10');
+    expect(wrapper.find('[aria-label="icon"]').find('svg').exists()).toBe(true);
+    expect(wrapper.text()).not.toContain('   ');
+  });
+
+  it('renderiza PtIcon nos adornos esquerdo e direito quando os nomes existem na library', () => {
+    const wrapper = mount(PtButton, {
+      props: {
+        iconLeft: 'plus',
+        iconRight: 'chevron-right'
+      },
+      slots: { default: 'Continuar' }
+    });
+
+    const icons = wrapper.findAll('svg');
+
+    expect(icons).toHaveLength(2);
+    expect(wrapper.find('[aria-label="icon-left"]').exists()).toBe(true);
+    expect(wrapper.find('[aria-label="icon-right"]').exists()).toBe(true);
+  });
+
+  it('renderiza adornos por slot e considera conteúdo vnode como conteúdo válido', () => {
+    const wrapper = mount(PtButton, {
+      slots: {
+        default: () => h('strong', 'Apostar'),
+        startAdornment: () => h('span', { class: 'slot-start' }, 'S'),
+        endAdornment: () => h('span', { class: 'slot-end' }, 'E')
+      }
+    });
+    const list = classList(wrapper.attributes('class'));
+
+    expect(list).not.toContain('w-10');
+    expect(wrapper.find('.slot-start').exists()).toBe(true);
+    expect(wrapper.find('.slot-end').exists()).toBe(true);
+    expect(wrapper.text()).toContain('Apostar');
+  });
+});

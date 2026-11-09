@@ -1,0 +1,13 @@
+:root,
+:root[data-theme='dark'] {
+  --sb-pt-content-secondary: var(--pt-color-content-secondary);
+  --sb-pt-content-din: var(--pt-color-content-din);
+}
+
+.sidebar-item[data-selected='true'],
+.sidebar-item[data-selected='true'] a,
+.sidebar-item[data-selected='true'] span,
+.sidebar-item[data-selected='true'] code,
+.sidebar-item[data-selected='true'] svg {
+  color: var(--sb-pt-content-din) !important;
+}

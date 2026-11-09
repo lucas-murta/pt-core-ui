@@ -1,0 +1,106 @@
+import { isVNode } from 'vue';
+
+import {
+  buildFieldBareIconClasses,
+  buildFieldMessageClasses,
+  getFieldBorderClass,
+  resolveFieldState
+} from '../fieldState';
+import type { SelectClassProps } from './PtSelect.interface';
+
+export const extractText = (node: unknown): string => {
+  if (typeof node === 'string' || typeof node === 'number') return String(node);
+  if (Array.isArray(node)) return node.map(extractText).join('').trim();
+  if (isVNode(node)) return extractText(node.children);
+  if (node && typeof node === 'object') {
+    const maybeChildren = (node as { children?: unknown }).children;
+    if (maybeChildren !== undefined) return extractText(maybeChildren);
+  }
+  return '';
+};
+
+export const buildSelectClasses = (props: SelectClassProps) => {
+  const {
+    className,
+    panelClassName,
+    hasIcon,
+    isOpen,
+    isValid,
+    hasSuccess = false,
+    disabled = false,
+    readOnly = false
+  } = props;
+
+  const state = resolveFieldState({ disabled, isValid, hasSuccess });
+
+  let triggerStateClass: string | undefined;
+
+  if (disabled) {
+    triggerStateClass =
+      'cursor-not-allowed bg-pt-surface-3 text-pt-content-disable';
+  } else if (readOnly) {
+    triggerStateClass = 'cursor-default bg-pt-surface-2 text-pt-content-ghost';
+  }
+
+  const wrapper = ['flex flex-col gap-pt-1', className]
+    .filter(Boolean)
+    .join(' ');
+  const label = [
+    'font-pt-body text-pt-body-small',
+    'text-pt-content-default'
+  ].join(' ');
+
+  const dropdownRoot = 'block w-full';
+  const dropdownPanel = [
+    'w-full max-h-[280px] overflow-auto p-pt-1',
+    panelClassName
+  ]
+    .filter(Boolean)
+    .join(' ');
+
+  const trigger = [
+    'relative flex h-pt-5 w-full items-center gap-pt-2 rounded-pt-1 border bg-pt-surface-1 px-pt-2 text-left text-pt-content-default outline-none',
+    hasIcon ? 'pl-pt-5' : undefined,
+    'transition-[border-color,box-shadow] duration-200 ease-in-out',
+    'focus-visible:border-pt-focus focus-visible:ring-2 focus-visible:ring-pt-focus',
+    triggerStateClass,
+    getFieldBorderClass(state)
+  ]
+    .filter(Boolean)
+    .join(' ');
+
+  const iconContainer = buildFieldBareIconClasses(state);
+
+  const value =
+    'flex-1 min-w-0 overflow-hidden text-ellipsis whitespace-nowrap';
+  const placeholder = 'text-pt-content-ghost';
+
+  const chevron = [
+    'shrink-0 text-pt-content-ghost transition-transform duration-200 ease-in-out',
+    isOpen ? 'rotate-180' : 'rotate-0'
+  ].join(' ');
+
+  const options = 'grid';
+  const optionActive = 'bg-pt-surface-2';
+
+  const { messageInfo, messageDanger, messageSuccess } =
+    buildFieldMessageClasses();
+
+  return {
+    state,
+    wrapper,
+    label,
+    dropdownRoot,
+    dropdownPanel,
+    trigger,
+    iconContainer,
+    value,
+    placeholder,
+    chevron,
+    options,
+    optionActive,
+    messageInfo,
+    messageDanger,
+    messageSuccess
+  };
+};

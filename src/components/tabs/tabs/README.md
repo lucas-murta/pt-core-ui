@@ -1,0 +1,137 @@
+# PtTabs, PtTab e PtTabPanel
+
+Abas com navegacao por teclado no padrao ARIA. O `PtTabs` guarda a aba ativa e distribui a configuracao; o `PtTab` e cada aba; o `PtTabPanel` e o conteudo ligado a ela.
+
+## Import
+
+```ts
+import { PtTab, PtTabPanel, PtTabs } from '@pauta/pt-core-ui';
+```
+
+## Exemplo basico
+
+```vue
+<script setup lang="ts">
+import { ref } from 'vue';
+import { PtTab, PtTabPanel, PtTabs } from '@pauta/pt-core-ui';
+
+const aba = ref('pedidos');
+</script>
+
+<template>
+  <PtTabs v-model="aba">
+    <template #tabs>
+      <PtTab value="pedidos" label="Pedidos" />
+      <PtTab value="produtos" label="Produtos" />
+    </template>
+
+    <PtTabPanel value="pedidos">Acompanhe seus pedidos recentes.</PtTabPanel>
+    <PtTabPanel value="produtos">Confira as novidades da loja.</PtTabPanel>
+  </PtTabs>
+</template>
+```
+
+As abas vao no slot `tabs` e os paineis no slot padrao. Os paineis sao opcionais: da para usar o `PtTabs` so como seletor e renderizar o conteudo por fora, pelo `v-model`.
+
+## Props do PtTabs
+
+| Prop            | Tipo                       | Default     | Descricao                                             |
+| --------------- | -------------------------- | ----------- | ----------------------------------------------------- | -------------------------------------------------- |
+| `modelValue`    | `string \| number`         | `undefined` | Aba ativa (`v-model`).                                |
+| `variant`       | `underline \| pill`        | `underline` | Estilo da lista.                                      |
+| `size`          | `small \| medium \| large` | `medium`    | Escala das abas.                                      |
+| `color`         | `primary \| secondary`     | `primary`   | Cor de destaque da aba ativa.                         |
+| `align`         | `start \| center \| end`   | `start`     | Alinhamento quando as abas nao ocupam a largura toda. |
+| `fullWidth`     | `boolean`                  | `false`     | Distribui as abas igualmente na largura disponivel.   |
+| `iconPosition`  | `start                     | top`        | `start`                                               | Icone ao lado (`start`) ou acima (`top`) do texto. |
+| `disabled`      | `boolean`                  | `false`     | Bloqueia todas as abas.                               |
+| `ariaLabel`     | `string`                   | `Abas`      | Rotulo da lista.                                      |
+| `className`     | `string`                   | `''`        | Classes extras no container.                          |
+| `listClassName` | `string`                   | `''`        | Classes extras na lista.                              |
+
+### Eventos
+
+| Evento              | Payload            | Quando             |
+| ------------------- | ------------------ | ------------------ |
+| `update:modelValue` | `string \| number` | A aba ativa mudou. |
+| `change`            | `string \| number` | A aba ativa mudou. |
+
+## Props do PtTab
+
+| Prop        | Tipo               | Default     | Descricao                                   |
+| ----------- | ------------------ | ----------- | ------------------------------------------- |
+| `value`     | `string \| number` | —           | Identidade da aba; casa com o painel.       |
+| `label`     | `string`           | `''`        | Texto da aba; o slot padrao tem prioridade. |
+| `icon`      | `string`           | `undefined` | Icone opcional a esquerda do texto.         |
+| `disabled`  | `boolean`          | `false`     | Bloqueia esta aba.                          |
+| `className` | `string`           | `''`        | Classes extras na aba.                      |
+
+O slot padrao substitui o `label` quando voce precisa de markup — um contador, um chip ou um badge informativo.
+
+## Props do PtTabPanel
+
+| Prop        | Tipo               | Default | Descricao                                             |
+| ----------- | ------------------ | ------- | ----------------------------------------------------- |
+| `value`     | `string \| number` | —       | Identidade do painel; casa com a aba.                 |
+| `keepAlive` | `boolean`          | `false` | Mantem o painel montado quando inativo, so escondido. |
+| `className` | `string`           | `''`    | Classes extras no painel.                             |
+
+Por padrao o painel inativo sai do DOM. Com `keepAlive` ele fica montado com `hidden` — util para preservar rolagem, formularios preenchidos ou evitar refazer uma requisicao a cada troca.
+
+### Tamanhos disponiveis
+
+| Tamanho  | Altura        | Fonte                 | Icone            |
+| -------- | ------------- | --------------------- | ---------------- |
+| `small`  | 32px (`pt-4`) | `text-pt-body-small`  | `pt-sm` (14px)   |
+| `medium` | 40px (`pt-5`) | `text-pt-body-medium` | `pt-base` (16px) |
+| `large`  | 48px (`pt-6`) | `text-pt-body-large`  | `pt-md` (18px)   |
+
+## Variantes
+
+- `underline`: lista com trilho inferior em `pt-border-2` e a aba ativa marcada por uma borda de 2px na cor de destaque. A borda existe em todas as abas, so muda de cor, entao trocar de aba nao desloca o layout.
+- `pill`: barra arredondada em `pt-surface-2` com a aba ativa preenchida — o formato de seletor segmentado.
+
+Em qualquer variante, disposicao ou estado, o icone da aba fica em `text-pt-content-secondary`.
+
+## Icone acima do texto
+
+Com `iconPosition="top"` o icone fica acima do rotulo, no formato de menu de navegacao mobile. A variante, as cores e os estados continuam os mesmos; so muda a disposicao: a aba vira coluna, a altura passa a ser minima (`min-h-*` da escala) com respiro vertical, o espaco entre icone e texto cai para 4px e as abas esticam ate a altura da mais alta (uma aba so com icone fica do mesmo tamanho das outras), o icone sobe e o texto desce na escala, para o icone ser o destaque da aba:
+
+| Size     | Icone           | Texto         |
+| -------- | --------------- | ------------- |
+| `small`  | `pt-xl` (24px)  | `text-pt-xxs` |
+| `medium` | `pt-xl` (24px)  | `text-pt-xs`  |
+| `large`  | `pt-2xl` (30px) | `text-pt-sm`  |
+
+```vue
+<PtTabs v-model="ativa" variant="pill" icon-position="top" full-width>
+  <template #tabs>
+    <PtTab value="menu" label="Menu" icon="bars" />
+    <PtTab value="promocoes" label="Promocoes" icon="gift" />
+  </template>
+</PtTabs>
+```
+
+## Muitas abas
+
+A lista rola na horizontal quando as abas nao cabem, com a barra de rolagem escondida. Nao ha quebra de linha: em telas estreitas o usuario arrasta.
+
+## Regras internas
+
+- `resolveNextTabIndex` resolve a navegacao por teclado; a lista de abas e lida do DOM na hora, entao a ordem e sempre a ordem visual, mesmo com abas adicionadas ou removidas.
+- `buildTabClasses` nunca emite o utilitario neutro junto do de destaque (`bg-transparent` com `bg-pt-primary`, por exemplo): com os dois na mesma classe, quem decide e a ordem do CSS gerado, e o destaque do ativo se perde.
+- Sem `modelValue` nenhuma aba fica ativa e nenhum painel e renderizado.
+- `data-pt-tabs`, `data-pt-tabs-list`, `data-pt-tab-value`, `data-pt-tab-active` e `data-pt-tab-panel-value` estao disponiveis para testes e QA.
+
+## Acessibilidade
+
+- A lista usa `role="tablist"` com `aria-label` e `aria-orientation="horizontal"`.
+- Cada aba e um `button` com `role="tab"`, `aria-selected` e `aria-controls` apontando para o painel; o painel usa `role="tabpanel"` com `aria-labelledby` de volta.
+- `tabindex` rotativo: so a aba ativa entra na ordem de tabulacao; as demais sao alcancadas pelas setas.
+- Setas esquerda e direita circulam entre as abas habilitadas, `Home` e `End` vao para as pontas. A selecao acompanha o foco.
+- Abas desabilitadas sao puladas pela navegacao por teclado.
+
+## Observacoes
+
+- Icones informados em `icon` precisam ser registrados na `library` do Font Awesome pelo projeto consumidor.
+- No tema escuro, a pilula ativa em `color="primary"` tem pouca separacao do proprio trilho (contraste medido de 2.04), porque o roxo do `pt-primary` fica no meio da rampa de superficies. O texto continua legivel (8.12) e o estado tambem e comunicado por `aria-selected`, mas para um destaque mais forte use `color="secondary"`, que mede 9.7 contra o trilho.

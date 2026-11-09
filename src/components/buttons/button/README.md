@@ -1,0 +1,105 @@
+# PtButton
+
+Componente de botao da biblioteca para acoes principais e secundarias, com suporte a variantes visuais, tamanhos, cores semanticas, largura fluida, estado desabilitado e modo `icon only`.
+
+## Import
+
+```ts
+import { PtButton } from '@pauta/pt-core-ui';
+```
+
+## Variantes disponiveis
+
+- `solid`
+- `outline`
+- `text`
+- `ghost`
+
+## Cores disponiveis
+
+- `primary`
+- `secondary`
+- `positive`
+- `negative`
+
+## Tamanhos disponiveis
+
+Todas as variacoes usam canto arredondado (`rounded-pt-1`).
+
+O `ghost` se comporta como o `text` — sem borda, so o rotulo colorido —,
+mas com uma superficie discreta em `--pt-color-shadow-1` atras. O token e
+semitransparente e o mesmo nas quatro cores, entao a diferenca entre elas
+fica so no texto.
+
+| `size`   | Altura        | Padding lateral  | Fonte          | Icone           |
+| -------- | ------------- | ---------------- | -------------- | --------------- |
+| `small`  | 32px (`h-8`)  | 16px (`px-pt-2`) | `text-pt-sm`   | `PtIcon` size 2 |
+| `medium` | 40px (`h-10`) | 24px (`px-pt-3`) | `text-pt-base` | `PtIcon` size 3 |
+| `large`  | 48px (`h-12`) | 24px (`px-pt-3`) | `text-pt-md`   | `PtIcon` size 4 |
+
+No modo icon-only o botao vira um circulo (largura igual a altura, sem padding horizontal).
+
+## Props principais
+
+- `variant`: define o estilo visual do botao. Default: `solid`.
+- `size`: define a escala visual do botao. Default: `medium`.
+- `color`: define a cor semantica usada pela variante. Default: `primary`.
+- `fullWidth`: expande o botao para `w-full` quando existe conteudo textual.
+  O conteudo fica centralizado; com `startAdornment` ou `endAdornment` os
+  adornos sao empurrados para as pontas e o conteudo fica entre eles.
+- `type`: controla o tipo nativo do elemento. Default: `button`.
+- `value`: repassa o valor para o elemento nativo.
+- `iconLeft`: renderiza um `PtIcon` antes do conteudo a partir do nome informado.
+- `iconRight`: renderiza um `PtIcon` depois do conteudo a partir do nome informado.
+- `disabled`: aplica estilo desabilitado e bloqueia interacao. Default: `false`.
+- `className`: injeta classes extras no elemento raiz.
+
+## Slots
+
+- `default`: conteudo principal do botao.
+- `startAdornment`: area extra antes do conteudo.
+- `endAdornment`: area extra depois do conteudo.
+
+## Exemplo basico
+
+```vue
+<script setup lang="ts">
+import { PtButton } from '@pauta/pt-core-ui';
+</script>
+
+<template>
+  <PtButton>Salvar</PtButton>
+</template>
+```
+
+## Exemplo com variantes
+
+```vue
+<template>
+  <div class="flex flex-wrap gap-pt-2">
+    <PtButton variant="solid" color="primary">Primary</PtButton>
+    <PtButton variant="outline" color="secondary">Secondary</PtButton>
+    <PtButton variant="text" color="negative">Negative</PtButton>
+  </div>
+</template>
+```
+
+## Exemplo com adornos
+
+```vue
+<template>
+  <PtButton iconLeft="plus" iconRight="chevron-right">Continuar</PtButton>
+</template>
+```
+
+## Regras internas
+
+- Sem conteudo no slot `default` e com apenas um adorno, o componente entra em modo `icon only`.
+- O modo `icon only` troca o comportamento de largura por um tamanho quadrado baseado na altura do botao.
+- O estado `disabled` sobrescreve as classes da variante e aplica cores neutras da biblioteca.
+- `iconLeft` e `iconRight` reutilizam o `PtIcon`, respeitando a library atual do Font Awesome.
+
+## Observacoes
+
+- O componente usa os tokens semanticos de cor e conteudo ja publicados no tema Tailwind da biblioteca.
+- Para os icones aparecerem, a aplicacao consumidora precisa registrar no Font Awesome os `IconDefinition` utilizados.
