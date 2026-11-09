@@ -5,7 +5,7 @@
   "description": "Biblioteca de componentes Pauta.io Vue 3 com Vite, Tailwind CSS e Storybook",
   "repository": {
     "type": "git",
-    "url": "https://github.com/StartBet/st-core-ui.git"
+    "url": "https://github.com/lucas-murta/pt-core-ui.git"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
