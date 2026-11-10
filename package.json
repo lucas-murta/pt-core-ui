@@ -36,7 +36,7 @@
   "scripts": {
     "prepare": "husky",
     "build": "npm run build:lib && npm run build:hooks",
-    "build:lib": "vue-tsc --project tsconfig.lib.json --declaration --emitDeclarationOnly --outDir dist/types && vite build",
+    "build:lib": "vite build && vue-tsc --project tsconfig.lib.json --declaration --emitDeclarationOnly --outDir dist/types",
     "build:hooks": "tsc --project tsconfig.scripts.json",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
