@@ -1,3 +1,10 @@
+## [0.0.2](https://github.com/lucas-murta/pt-core-ui/compare/v0.0.1...v0.0.2) (2026-11-10)
+
+
+### Bug Fixes
+
+* **package:** emit type declarations after vite build ([14aea86](https://github.com/lucas-murta/pt-core-ui/commit/14aea86915321c7ef4a28c06461a9e0d6b050646))
+
 ## [0.39.2](https://github.com/StartBet/st-core-ui/compare/v0.39.1...v0.39.2) (2026-09-25)
 
 
