@@ -1,3 +1,10 @@
+# [0.1.0](https://github.com/lucas-murta/pt-core-ui/compare/v0.0.2...v0.1.0) (2026-11-11)
+
+
+### Features
+
+* **catalog:** gera catalog.json da API publica do design system ([27d8964](https://github.com/lucas-murta/pt-core-ui/commit/27d89640559a69fd1ea088cdf468400834c62987))
+
 ## [0.0.2](https://github.com/lucas-murta/pt-core-ui/compare/v0.0.1...v0.0.2) (2026-11-10)
 
 
