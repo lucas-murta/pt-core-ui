@@ -5,3 +5,4 @@ dist
 .data
 .cache
 package-lock.json
+catalog.json

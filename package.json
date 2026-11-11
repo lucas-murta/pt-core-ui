@@ -12,6 +12,7 @@
   "types": "./dist/types/index.d.ts",
   "files": [
     "dist",
+    "catalog.json",
     "src/css",
     "src/assets/fonts",
     "src/tokens/index.ts",
@@ -24,6 +25,7 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
+    "./catalog.json": "./catalog.json",
     "./tailwind.config": "./tailwind.config.ts",
     "./style.css": "./src/css/style.css",
     "./tokens.css": "./src/css/tokens.css",
@@ -35,9 +37,12 @@
   ],
   "scripts": {
     "prepare": "husky",
-    "build": "npm run build:lib && npm run build:hooks",
+    "build": "npm run build:lib && npm run build:hooks && npm run build:catalog",
     "build:lib": "vite build && vue-tsc --project tsconfig.lib.json --declaration --emitDeclarationOnly --outDir dist/types",
     "build:hooks": "tsc --project tsconfig.scripts.json",
+    "prebuild:catalog": "npm run build:hooks",
+    "build:catalog": "node .cache/hooks-dist/scripts/generate-catalog/index.js",
+    "catalog:check": "npm run build:hooks && node .cache/hooks-dist/scripts/generate-catalog/index.js --check",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "lint": "eslint .",
